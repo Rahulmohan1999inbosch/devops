@@ -1,0 +1,49 @@
+To pull image from Docker repository use run the command -->docker pull <image_name> for example(docker pull ubuntu)
+
+To list all the images we use the command ---->docker images / docker images -q to only display the image id 
+
+To remove an image we use the command-----> docker rmi <image_id> example docker rmi 3b418d7b466a
+
+To get list of container use the command ----->docker ps
+
+To Create a container use the command docker run <image_name>
+
+TO once the contaner is created to inside the contaier and start working use the command------>docker run -it <image name> 
+example docker run -it ubuntu
+
+To stop the container use the command docker stop contianer id [you get the container id by running docker ps]
+
+Completion of docker docker command
+
+---------------------------------------------------------------------------------------------------------------------------------------
+Docker Images
+
+docker images --help [This command gives you list of all the commands that can be used with docker images]
+
+Images :
+
+Images are the template used to create docker containers and are stored in docker registry
+
+docker images -a [lists all images]
+docker images -q [only displays image id not the name]
+docker images -f "dangling=false" [dangling means images associated with container if not present gives nothing]
+docker pull ubuntu:18.01 [to pull image of specific version]
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+-
