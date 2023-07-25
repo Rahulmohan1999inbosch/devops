@@ -1,0 +1,82 @@
+pipeline {
+    agent any
+    
+    environment{
+        MAX_SIZE=10
+        MIN_SIZE=1
+    }
+    
+    parameters{
+        
+        string(name:'Mother',
+            defaultValue:'Shakuntala',
+            description:'Enter your Mother name'
+        )
+        
+        text(
+            name:'Phrase',
+            defaultValue:'Naan barovargu matra bere avr hava band mele nande hava',
+            description:'Eneter a phrase that you use to impress your crush'
+            )
+    
+       booleanParam(name:'RUN_TESTS',
+       defaultValue:false,
+       description:'toggle this value to run test'
+       )
+       
+       choice(
+           name:'AWS_REGION',
+           choices:["user east","user west","user north","user south"],
+           description:"Select the AWS region for deployment"
+           )
+           
+        password(name:"DataBase_Password",
+        defaultValue:"DataBasePassword",
+        description:"Enter the database password"
+        )
+        
+        
+    }
+
+    stages {
+        
+        
+        
+        stage('Default stage'){
+            
+            steps{
+                
+                echo "MAX_SIZE = ${MAX_SIZE}"
+                echo "MIN_SIZE=${MIN_SIZE}"
+            
+            }
+        }
+        
+        
+        stage('scale by 10x'){
+            environment{
+                MAX_SIZE=100
+                MIN_SIZE=10
+            }
+            steps{
+                
+                echo "MAX_SIZE =${MAX_SIZE}"
+                echo "MIN_SIZE=${MIN_SIZE}"
+                
+            }
+            
+        }
+        
+        stage('REPORT ') {
+            steps {
+                archiveArtifacts allowEmptyArchive: true, artifacts: '*.txt', fingerprint: true, followSymlinks: false, onlyIfSuccessful: true
+            }
+        }
+        
+        
+        
+    }
+     
+     
+    
+}
