@@ -13,6 +13,7 @@ example docker run -it ubuntu
 
 To stop the container use the command docker stop contianer id [you get the container id by running docker ps]
 
+
 Completion of docker docker command
 
 ---------------------------------------------------------------------------------------------------------------------------------------
@@ -28,6 +29,29 @@ docker images -a [lists all images]
 docker images -q [only displays image id not the name]
 docker images -f "dangling=false" [dangling means images associated with container if not present gives nothing]
 docker pull ubuntu:18.01 [to pull image of specific version]
+------------------------------------------------------------------------------
+Docker Containers 
+
+To name your container-->docker run --name [container name] -it <image_name>  [it means interactive mode]
+docker kill <contianer name/ID> kills the running container
+docker rm <container_name/ID>
+------------------------------------------------
+Docker file
+
+Step 1:Create a new file name Dockerfile
+
+Step 2:Add instruction in Docker file
+
+Step 3:docker build dockerfile directory
+-------------------------------------------------------
+docker volume create [my-volume-->volume name]
+
+docker run -it --rm --mount source=my-volume,destination=/my-data/ ubuntu
+echo "hello" >/my-data/hello.txt
+root@be63353b3659:/# cat my-data/hello.txt  
+
+
+ 
 
 
 
