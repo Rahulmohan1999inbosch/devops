@@ -72,8 +72,23 @@ pipeline {
                 archiveArtifacts allowEmptyArchive: true, artifacts: '*.txt', fingerprint: true, followSymlinks: false, onlyIfSuccessful: true
             }
         }
+
+        stage('planning'){
+          echo "Planning done"
+        }
         
+        stage('Development'){
+          echo "Development done"
+        }
         
+
+        stage('Testing'){
+          echo "Testing done"
+        }
+
+        stage('Deployment'){
+          echo "Deployment done"
+        }
         
     }
      
