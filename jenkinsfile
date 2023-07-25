@@ -74,20 +74,28 @@ pipeline {
         }
 
         stage('planning'){
-          echo "Planning done"
+
+          steps{ echo "Planning done"}
+         
         }
         
         stage('Development'){
+          steps{
           echo "Development done"
         }
+        }
         
-
+        
         stage('Testing'){
+          steps{
           echo "Testing done"
+        }
         }
 
         stage('Deployment'){
+          steps{
           echo "Deployment done"
+        }
         }
         
     }
